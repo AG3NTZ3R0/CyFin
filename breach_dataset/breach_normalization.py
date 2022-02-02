@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def main():
-    breach_dataframe = pd.read_csv('Balloon Race_ Data Breaches - LATEST - breaches.csv', skiprows=[1])
+    breach_dataframe = pd.read_csv('company_meta_dataset/latest_breaches.csv', skiprows=[1])
     org_dataframe = breach_dataframe['organisation']
     records_dataframe = breach_dataframe['records lost']
     date_dataframe = breach_dataframe['date']
@@ -17,7 +17,7 @@ def main():
         'records_lost': records_dataframe
     })
 
-    normalized_csv.to_csv('normalized_breach_dataset.csv', index=True)
+    normalized_csv.to_csv('company_meta_dataset/normalized_breach_dataset.csv', index=True)
 
 
 if __name__ == '__main__':
