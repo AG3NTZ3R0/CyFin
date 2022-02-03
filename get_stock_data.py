@@ -3,9 +3,6 @@ import pandas as pd
 import yfinance as yf
 
 
-# def filter_tickers():
-
-
 def main(start_date='2004-01-01', end_date='2022-01-01'):
     """Extract ticker symbols from BUG csv file and gather price history"""
     # Read BUG CSV into pandas dataframe
