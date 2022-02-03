@@ -4,7 +4,7 @@ import yfinance as yf
 
 
 def main(start_date='2004-01-01', end_date='2022-01-01'):
-    """Extract ticker symbols from BUG csv file and gather price history"""
+    """Extract ticker symbols from both csv files and generate technical datasets."""
     # Read BUG CSV into pandas dataframe
     bug_full_holdings_df = pd.read_csv('bug_full_holdings_20220119.csv')
     # Create list from Ticker column
