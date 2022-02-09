@@ -1,2 +1,2 @@
 # CyFin 🔐 📉
-A collaborative project to uncover correlations between cybersecurity breaches and stock prices in effort to intertwine the disciplines of cybersecurity and finance.
+A collaborative project that uncovers the correlations between cybersecurity breaches and stock prices through the utilization of data mining and web scraping techniques.
