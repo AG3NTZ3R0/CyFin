@@ -38,13 +38,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/stock_price_ds/ALO_hist.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/stock_price_ds/ATEN_hist.csv">
           <value>
             <Attribute>
