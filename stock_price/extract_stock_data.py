@@ -3,7 +3,7 @@ import wxve as x
 
 
 def main():
-    """Get stock data."""
+    """Get stock data using wxve."""
     api_key = 'YOUR_API_KEY'
 
     bug = x.Stock('BUG', api_key)
