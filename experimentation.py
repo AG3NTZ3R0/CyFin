@@ -20,6 +20,18 @@ def main():
         stock_df = stock_df.rename(columns={'adjclose': f"{stock}_adjclose", 'pct_change': f"{stock}_pct_change"})
         breach_df = pd.merge(breach_df, stock_df, on=['month', 'year'], how='left')
 
+    analysis_df = breach_df.drop(['month', 'year', 'records_lost'], axis=1)
+
+    bool_df = analysis_df.ge(0)
+    bool_df = bool_df.sum(axis=1)
+    breach_df = pd.concat([breach_df, bool_df], axis=1)
+    breach_df = breach_df.rename(columns={0: 'pct_change_pos_eq'})
+
+    bool_df = analysis_df.lt(0)
+    bool_df = bool_df.sum(axis=1)
+    breach_df = pd.concat([breach_df, bool_df], axis=1)
+    breach_df = breach_df.rename(columns={0: 'pct_change_neg'})
+
     breach_df.to_csv('breach_bug_df.csv')
 
 
