@@ -2,12 +2,18 @@ import pandas as pd
 import yh_finance as yhf
 
 
-def main():
-    """Get stock data using wxve."""
-    api_key = 'YOUR_API_KEY'
-
+def get_bug_holdings():
     bug_etf_df = pd.read_csv('../CyFin/stock_price/bug_etf_holdings.csv')
     bug_etf_symbols = bug_etf_df['Ticker'].tolist()
+
+    return bug_etf_symbols
+
+
+def main():
+    """Get stock data using wxve."""
+    api_key = '4be0c12dafmsha1dc84c5838f414p1fe794jsncdf375a2a2cf'
+
+    bug_etf_symbols = get_bug_holdings()
 
     for stock in bug_etf_symbols:
         print(stock)
@@ -26,6 +32,8 @@ def main():
         month_data['month'] = pd.to_datetime(json_resp_month['chart']['result'][0]['timestamp'], unit='s').month
         month_data['year'] = pd.to_datetime(json_resp_month['chart']['result'][0]['timestamp'], unit='s').year
         month_data['adjclose'] = json_resp_month['chart']['result'][0]['indicators']['adjclose'][0]['adjclose']
+        month_data['pct_change'] = month_data['adjclose'].pct_change()
+        month_data = month_data.dropna()
         month_data.to_csv(f"../CyFin/stock_price/sets/bug_etf/stock_hist/element/{stock}_hist.csv")
 
 
